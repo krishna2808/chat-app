@@ -1,0 +1,541 @@
+/* Ensure the container takes up the full height of the viewport */
+.app-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Left panel (user chat list) styling */
+  .user-chat-list {
+    flex: 1;
+    border-right: 1px solid #ccc;
+    overflow-y: auto; /* Enables vertical scrolling */
+    padding: 20px;
+  }
+  
+  /* Right panel (user chat) styling */
+  .user-chat {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ensures the right panel takes up full height */
+  }
+  
+  .user-chat h2 {
+    margin-bottom: 20px;
+  }
+  
+  .message-input {
+    display: flex;
+  }
+  
+  .message-input input {
+    flex: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+  
+  .message-input button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .message-input button:hover {
+    background-color: #0056b3;
+  }
+  
+  .chat-message strong {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .chat-message span {
+    color: #999;
+    font-size: 12px;
+  }
+  
+  ul.chat-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul.chat-list li {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  ul.chat-list li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .dm-chat-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .dm-chat-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .chat-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .chat-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto; /* Enables vertical scrolling */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .chat-message {
+    max-width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .chat-message.sent {
+    align-self: flex-end;
+    background-color: #dcf8c6;
+    text-align: right;
+  }
+  
+  .chat-message.received {
+    align-self: flex-start;
+    background-color: #f1f0f0;
+    text-align: left;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* message header and messsge */
+  .chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    height: calc(100vh - 250px); /* Adjust the height as per your layout */
+    padding: 10px;
+  }
+  
+  .chat-message {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .message-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+  }
+  
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .message-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 70%;
+  }
+  
+  .message-text {
+    /* background-color: #f2f2f2; */
+    padding: 10px;
+    border-radius: 10px;
+    word-wrap: break-word;
+  }
+  
+  .message-timestamp {
+    align-self: flex-end;
+    font-size: 12px;
+    color: #999;
+  }
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* online or offline user */
+
+  .online-users {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .online-users h3 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+.online-users ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.online-users ul li {
+    padding: 5px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.chat-profile-image{
+    height: 50px;
+    width: 50px;
+    margin-right: 5px ;
+    margin-left: 15px ;
+    border-radius: 50%;
+
+    border-radius: 50%;
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .status {
+    margin-left: 10px;
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+  
+  .online {
+    color: green;
+  }
+  
+  .offline {
+    color: red;
+  }
+  
+  .chat-header {
+    display: flex;
+    align-items: center;
+    /* your existing styles */
+  }
+  
+  .online-users, .offline-users {
+    margin-bottom: 10px;
+  }
+
+
+.typing-indicator {
+    color: gray;
+    font-size: 12px;
+    margin-left: 5px;
+}
+  
+.typing-indicator-group {
+    display: flex;
+    flex-direction: column;
+}
+  
+.chat-header .status.online::after {
+    content: 'Online';
+    color: green;
+    font-size: 12px;
+}
+  
+.chat-header .status.offline::after {
+    content: 'Offline';
+    color: red;
+    font-size: 12px;
+}
+  
+
+
+
+
+
+
+  
+
+
+
+
+/* for chat downdownl delete and pin message  */
+
+
+.chat-list {
+    list-style: none;
+    padding: 0;
+}
+  
+.chat-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+    position: relative;
+}
+  
+.chat-item:hover {
+    background-color: #f1f1f1;
+}
+  
+.delete-container {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+  
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+  
+.delete-btn svg {
+    fill: #888;
+}
+  
+.dm-chat-item {
+    display: flex;
+    align-items: center;
+}
+  
+.dm-chat-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+  
+.context-menu {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+    position: absolute;
+
+
+
+}
+  
+.context-menu button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    display: block;
+    margin: 0;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+}
+  
+.context-menu button:hover {
+    background-color: #f1f1f1;
+}
+    
+
+
+
+
+
+
+  /* chat.css */
+
+/* File input button styling */
+.file-upload-button {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
+}
+  
+.file-upload-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+  
+.file-input {
+    display: none; /* Hide the file input visually */
+}
+  
+.message-input {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+  
+.message-input input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+  
+.message-input button {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+  
+.message-input button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+  
+
+
+.download-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    padding: 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+  
+.download-button:hover {
+    text-decoration: underline;
+}
+  
+.download-button .fa-download {
+    margin-right: 5px;
+}
+
+
+.select-chat{
+    margin: 30%;
+    font-size: larger;
+    color: green;
+}
+
+
+/* Add this to your chat.css or an appropriate CSS file */
+
+.no-underline {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+  
+.no-underline h4 {
+    margin: 0;
+    padding-left: 10px; /* Adjust spacing between image and username */
+    color:black;
+}
+  

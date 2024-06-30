@@ -1,0 +1,20 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/app/project-blog/blog
+#ExecStart=/app/project-blog/venv/bin/gunicorn --workers 3 --bind unix:/run/gunicorn.sock blog.wsgi:application
+# it is not working from unix so that i have direct ip address. next time i will look;
+ExecStart=/app/project-blog/venv/bin/gunicorn \
+         #--access-logfile  /var/log/gunicorn/access.log  \
+         #--error-logfile /var/log/gunicorn/error.log \
+         --workers 3 \
+         --bind 0.0.0.0:8000 \
+         blog.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

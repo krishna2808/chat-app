@@ -1,0 +1,11 @@
+[Unit]
+Description=gunicorn socket
+
+[Socket]
+# it is not working from unix so that i have direct ip address. next time i will look;
+#ListenStream=/run/gunicorn.sock
+ListenStream=0.0.0.0:8000
+
+
+[Install]
+WantedBy=sockets.target

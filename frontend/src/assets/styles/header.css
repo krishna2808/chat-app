@@ -1,0 +1,90 @@
+/* main.css */
+
+/* Style the search input */
+.form-control {
+    width: 200px;
+    transition: width 0.4s ease-in-out;
+}
+
+/* Style the dropdown list */
+.list-group.position-absolute {
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+.list-group-item:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+
+
+
+
+.header-image {
+    height: 32px;
+    width: 32px;
+    margin-right: 5px ;
+    margin-left: 5px ;
+    border-radius: 50%;
+
+}
+  
+
+
+
+
+/* show friend count on friend network logo */
+
+.friend-request-count {
+    position: absolute;
+    top: -1px;
+    right: -2px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+}
+
+
+
+
+
+/* header.css */
+.notification-count, .friend-request-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+

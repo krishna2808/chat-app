@@ -1,0 +1,86 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header, main {
+    max-width: 935px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  
+  .network-container {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    margin-top: 5%;
+  }
+  
+  .network-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .network-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .network-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #dbdbdb;
+  }
+  
+  .network-item:last-child {
+    border-bottom: none;
+  }
+  
+  .network-profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .network-profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .network-username {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .network-buttons {
+    display: flex;
+  }
+  
+  .btn {
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 9px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+  }
+  
+  .network-accept-btn {
+    background-color: #28a745;
+  }
+  
+  .network-cancel-btn {
+    background-color: #dc3545;
+  }
+  

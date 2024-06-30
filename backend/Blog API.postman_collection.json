@@ -1,0 +1,441 @@
+{
+	"info": {
+		"_postman_id": "023d4933-e090-4219-82fa-9fc19cdc4dee",
+		"name": "Blog API",
+		"description": "Blog API is endpoints. User can create account, delete and update as well as forgot password. and User can create, update, delete Post or user can comment and like of post and user can see notification with posted post and comment like.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30198037"
+	},
+	"item": [
+		{
+			"name": "Create account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"kk8140631@gmail.com\",\n    \"username\": \"krishna\",\n    \"password\": \"2222\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/account/signup/"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"kk8140631@gmail.com\",\n    \"password\":\"3333\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/account/signin/",
+				"description": "User login acoount with username and password and get jwt token."
+			},
+			"response": []
+		},
+		{
+			"name": "User Forgot password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"kk8140631@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/account/password-reset/"
+			},
+			"response": []
+		},
+		{
+			"name": "Verify User OTP",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"otp\":\"3674\",\n    \"email\":\"kk8140631@gmail.com\",\n    \"new_password\" : \"3333\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/account/otp-verify/"
+			},
+			"response": []
+		},
+		{
+			"name": "Profile Details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1ODg4NzEyLCJpYXQiOjE3MDU4NTI3MTIsImp0aSI6IjRhNDM2MGE2YmM2OTRlMDU5YjgzZGVhYTYzZWZlMzJlIiwidXNlcl9pZCI6MX0.TS1mSU4_QuJ5KeTycIgpQc-RMkcLAF0UlxbVayVY6Y8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"kk@gmail.com\",\n    \"username\": \"kk\",\n    \"mobile\": \"2222\",\n    \"first_name\": \"krishna\",\n    \"last_name\": null,\n    \"address\": null,\n    \"image\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/account/profile/"
+			},
+			"response": []
+		},
+		{
+			"name": "Profile Update",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1ODg4NzEyLCJpYXQiOjE3MDU4NTI3MTIsImp0aSI6IjRhNDM2MGE2YmM2OTRlMDU5YjgzZGVhYTYzZWZlMzJlIiwidXNlcl9pZCI6MX0.TS1mSU4_QuJ5KeTycIgpQc-RMkcLAF0UlxbVayVY6Y8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"kk@gmail.com\",\n    \"username\": \"kk\",\n    \"mobile\": \"2222\",\n    \"first_name\": \"krishnaa\",\n    \"last_name\": null,\n    \"address\": null,\n    \"image\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/account/profile/"
+			},
+			"response": []
+		},
+		{
+			"name": "Profile Delete",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1ODg5MDU4LCJpYXQiOjE3MDU4NTMwNTgsImp0aSI6IjBjMWViN2YwOGQ4MDQ3NmU4MzBhMDk3Y2FjYzIzN2U4IiwidXNlcl9pZCI6NH0.jiamUYtpAXDl-7WGJZGO4h86KkPy4HRdnUeVuQnekck",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"aa\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/account/profile/"
+			},
+			"response": []
+		},
+		{
+			"name": "Post Create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// No tests to fix"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1ODUxNjMyLCJpYXQiOjE3MDU4MTU2MzIsImp0aSI6ImIxNjA2M2NiZWI4OTRkZTFiMGVmYzZiZWM1M2JkNmY0IiwidXNlcl9pZCI6Mn0.RQvDwcqgTX5sxEwttbp13_Wf3wwZiZIalJeovQGxv2M",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/krishna/Documents/RABITMQ/Screenshot_2024-01-07-11-13-56-16_f9ee0578fe1cc94de7482bd41accb329.jpg"
+						},
+						{
+							"key": "title",
+							"value": "zzzzzz",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "descriptiondescriptiondescription",
+							"type": "text"
+						},
+						{
+							"key": "post_id",
+							"value": "19",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8000/post/"
+			},
+			"response": []
+		},
+		{
+			"name": "Post all List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1ODg5MzkxLCJpYXQiOjE3MDU4NTMzOTEsImp0aSI6ImU2ZmFkYTIyMTExOTRmYmZiMDFlYTgxOTQ0NjA4YzkwIiwidXNlcl9pZCI6MX0.gCETpIUR79b4ZmjvT5TeGhUyjMYKhpzvpXgS3avR0Sc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/post/post-list/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"post",
+						"post-list",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Posts User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1ODg5MzkxLCJpYXQiOjE3MDU4NTMzOTEsImp0aSI6ImU2ZmFkYTIyMTExOTRmYmZiMDFlYTgxOTQ0NjA4YzkwIiwidXNlcl9pZCI6MX0.gCETpIUR79b4ZmjvT5TeGhUyjMYKhpzvpXgS3avR0Sc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "vishal",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/post/user-post/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"post",
+						"user-post",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Comments Add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1ODg5MzkxLCJpYXQiOjE3MDU4NTMzOTEsImp0aSI6ImU2ZmFkYTIyMTExOTRmYmZiMDFlYTgxOTQ0NjA4YzkwIiwidXNlcl9pZCI6MX0.gCETpIUR79b4ZmjvT5TeGhUyjMYKhpzvpXgS3avR0Sc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"post_id\": 48 ,\n    \"comment\" : \"this is my comment \"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/post/post-comment/"
+			},
+			"response": []
+		},
+		{
+			"name": "Post Like Add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1ODg5MzkxLCJpYXQiOjE3MDU4NTMzOTEsImp0aSI6ImU2ZmFkYTIyMTExOTRmYmZiMDFlYTgxOTQ0NjA4YzkwIiwidXNlcl9pZCI6MX0.gCETpIUR79b4ZmjvT5TeGhUyjMYKhpzvpXgS3avR0Sc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"post_id\": 48 ,\n    \"like\" : \"this is my comment \"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/post/post-like/"
+			},
+			"response": []
+		},
+		{
+			"name": "Friend Request Send or Following",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1OTc4MTUwLCJpYXQiOjE3MDU5NDIxNTAsImp0aSI6IjVkNDU1YmU2MjdlZjQ5OTU5MzJjMDgyMGEyNDliNjM3IiwidXNlcl9pZCI6NX0.EBqHThn0sq-ANxtStuD5--x8HkIyzswRK7FTjks-npU",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/post/friend-request/"
+			},
+			"response": []
+		},
+		{
+			"name": "Friend Request Send or Following Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1ODg5MzkxLCJpYXQiOjE3MDU4NTMzOTEsImp0aSI6ImU2ZmFkYTIyMTExOTRmYmZiMDFlYTgxOTQ0NjA4YzkwIiwidXNlcl9pZCI6MX0.gCETpIUR79b4ZmjvT5TeGhUyjMYKhpzvpXgS3avR0Sc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"friend_request_username\": \"vishal\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/post/friend-request/"
+			},
+			"response": []
+		},
+		{
+			"name": "Friend Request Cancel or Unfollow",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1ODg5MzkxLCJpYXQiOjE3MDU4NTMzOTEsImp0aSI6ImU2ZmFkYTIyMTExOTRmYmZiMDFlYTgxOTQ0NjA4YzkwIiwidXNlcl9pZCI6MX0.gCETpIUR79b4ZmjvT5TeGhUyjMYKhpzvpXgS3avR0Sc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"friend_unfollow_username\": \"kk\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/post/friend-request/"
+			},
+			"response": []
+		},
+		{
+			"name": "Notification post like and Following",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1ODg5MzkxLCJpYXQiOjE3MDU4NTMzOTEsImp0aSI6ImU2ZmFkYTIyMTExOTRmYmZiMDFlYTgxOTQ0NjA4YzkwIiwidXNlcl9pZCI6MX0.gCETpIUR79b4ZmjvT5TeGhUyjMYKhpzvpXgS3avR0Sc",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/post/notification/"
+			},
+			"response": []
+		},
+		{
+			"name": "fetch old message",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "ws://127.0.0.1:8000/ws/chat/krishna/"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,63 @@
+version: '2'
+
+
+services:
+
+    web_blog:
+        restart: unless-stopped
+        container_name: web.blog
+        build:
+            context: .
+            #dockerfile: bicycle/docker/Dockerfile
+        entrypoint: /app/project-blog/blog/docker/backend/entry-point/server-entrypoint.sh
+        volumes:
+            - backend_container_data:/app/blog-project/
+        ports:
+            - 8000:8000
+        environment:
+            DEBUG: "True"
+            CELERY_BROKER_URL: "redis://redis:6379/0"
+            CELERY_RESULT_BACKEND: "redis://redis:6379/0"
+            DJANGO_DB: blog
+            MYSQL_HOST: mysql.blog
+            MYSQL_NAME: mysql
+            MYSQL_USER: root
+            MYSQL_PASSWORD: password
+            MYSQL_PORT: 3306
+        depends_on:
+           - mysql_blog
+
+    # redis_blog:
+    #     container_name: redis.blog
+    #     restart: unless-stopped
+    #     image: redis:7.0.5-alpine 
+    #     expose:
+    #         - 6379
+
+    mysql_blog:
+        image: mysql:8
+        container_name: mysql.blog
+        environment:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: blog
+        ports:
+          - 3306:3306
+        volumes:
+          - mysql-container-data:/var/lib/mysql
+
+    # nginx_blog:
+    #   #image: nginx:alpine
+    #   container_name: nginx.webserver.blog
+    #   build: nginx/
+    #   ports:
+    #     - 80:80
+    #     - 443:443
+    #   depends_on:
+    #     - web_blog
+
+
+volumes:
+    mysql-container-data:
+    backend_container_data:
+    #frontend_container_data:
+
