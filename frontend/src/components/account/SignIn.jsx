@@ -12,63 +12,74 @@ const signInUrl = `${process.env.REACT_APP_BACKEND_API_URL}/account/signin/`
 
 
 function SignIn() {
-	const [isLogin, setIsLogin] = useState(false);
-	const [accessToken, setAccesssToken] = useState(false);
-	const [username, setUsername] = useState(false);
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
+    const [isLogin, setIsLogin] = useState(false);
+    const [accessToken, setAccesssToken] = useState(false);
+    const [username, setUsername] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
+
+    
+
     //Normal function 
     // async function onSubmit(e){
     // arrow function SignIn
-	const onSubmit = async (e) =>{
-		console.log("click when ", e)
-		const payload = {
-			"email" :email,
-			"password" : password
-		}
-		console.log(email,password)
-		try {
-			// Make the API request using the fetch function
-			const response = await fetch(signInUrl, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			// credentials: 'include',
-			body: JSON.stringify(payload),
-			});
-			// Check if the request was successful (status code 2xx)
-			const responseData = await response.json();
-			if (response.ok) {
-				// Process the response data (if needed)
-				setAccesssToken(responseData["access"])
-				setUsername(responseData["username"])
-				localStorage.setItem('access_token', responseData["access"]);
-				localStorage.setItem('username', responseData["username"]);
-				localStorage.setItem('user_id', responseData["id"]);
-				localStorage.setItem('login_user_image', responseData["login_user_image"]);
-			    setIsLogin(true)
-				console.log(responseData);
-			} else {
-			// Handle errors
-			console.error('API request failed', response );
-			}
-		} catch (error) {
-			console.error('Error during API request', error);
-		}
-	}
+    const onSubmit = async (e) =>{
+        console.log("click when ", e)
+        const payload = {
+            "email" :email,
+            "password" : password
+        }
+        console.log(email,password)
+        try {
+            // Make the API request using the fetch function
+            const response = await fetch(signInUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            // credentials: 'include',
+            body: JSON.stringify(payload),
+            });
+            // Check if the request was successful (status code 2xx)
+            const responseData = await response.json();
+            if (response.ok) {
+                // Process the response data (if needed)
+                setAccesssToken(responseData["access"])
+                setUsername(responseData["username"])
 
-	useEffect(() => {
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('username');
+                localStorage.removeItem('user_id');
+                localStorage.removeItem('login_user_image');
 
-	}, [isLogin]);
+                localStorage.setItem('access_token', responseData["access"]);
+                localStorage.setItem('username', responseData["username"]);
+                localStorage.setItem('user_id', responseData["id"]);
+                localStorage.setItem('login_user_image', responseData["login_user_image"]);
+                setIsLogin(true)
+                console.log(responseData);
+            } else {
+            // Handle errors
+            console.error('API request failed', response );
+            }
+        } catch (error) {
+            console.error('Error during API request', error);
+        }
+    }
 
-	if(accessToken){
+    useEffect(() => {
+
+    }, [isLogin]);
+
+    if(accessToken){
 
 
-               {/* <chat/> */}
-               navigate('/chat');
-	}
+            {/* <chat/> */}
+            navigate('/chat');
+            window.location.reload();
+
+    }
 
 
     return (
