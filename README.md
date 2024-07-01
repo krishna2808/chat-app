@@ -30,6 +30,7 @@ This is a real-time chat application built using the Django(DRF) (HTML, CSS, Rea
 #### Backend
     - Python == 3.11.7
     - Django == 4.0
+    - Redis server or you can use direct in-memory database in settings.py
 ### Frontend
     - node == 20.9.0
     - npm == 10.1.0
@@ -64,20 +65,9 @@ This is a real-time chat application built using the Django(DRF) (HTML, CSS, Rea
       pip install -r requirements.txt
       python manage.py makemigrations 
       python manage.py migrate # note if it will not proper migration then makemigrations and migrate with manually app
-      python manage.py runserver
+      sudo apt-get install redis-server  # note if you don't want to use redis then in-memory database for development environment. 
+      sudo systemctl restart redis-server 
       ```
-
-
-
-3. Create a `.env` file in the `backend` directory and add the following environment variables:
-
-    ```plaintext
-    PORT=3000
-    MONGO_URI=<your-mongodb-uri>
-    JWT_SECRET=<your-jwt-secret>
-    ```
-
-    Replace `<your-mongodb-uri>` and `<your-jwt-secret>` with your MongoDB URI and a secret key for JWT.
 
 ## Running the Application
 
