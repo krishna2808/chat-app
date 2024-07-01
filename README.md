@@ -94,6 +94,7 @@ This is a real-time chat application built using the Django(DRF) (HTML, CSS, Rea
 - **React**: Library for building user interfaces
 - **WebSockets channel**: Real-time communication between client and server
 - **JWT**: Authentication using JSON Web Tokens
+- **Redis server**: Redis server for Websocket.
 
 
 ## Screenshots
