@@ -99,7 +99,10 @@ This is a real-time chat application built using the Django(DRF) (HTML, CSS, Rea
 
 ## Screenshots
 
-Include some screenshots of your application here to showcase its features and UI.
+<video width="640" height="360" controls>
+  <source src="https://github.com/krishna2808/Templates/raw/main/image/Screencast%20from%202024-07-01%2021-23-45.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
 
 ## Contributing
 
