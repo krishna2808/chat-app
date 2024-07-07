@@ -101,7 +101,11 @@ This is a real-time chat application built using the Django(DRF) (HTML, CSS, Rea
 
 
 <!-- [![Watch the video](https://img.youtube.com/vi/RpXl9Rzfjp4/maxresdefault.jpg)](https://youtu.be/RpXl9Rzfjp4) -->
-<a href="https://youtu.be/RpXl9Rzfjp4" target="_blank"><img src="https://img.youtube.com/vi/RpXl9Rzfjp4/maxresdefault.jpg" alt="Watch the video"></a>
+
+![Screencast from 2024-07-01](https://github.com/krishna2808/Templates/blob/main/image/Screencast%20from%202024-07-01%2021-23-45.gif)
+<br>
+<a href="https://youtu.be/RpXl9Rzfjp4" target="_blank">Watch Video</a>
+
 
 
 ## Contributing
